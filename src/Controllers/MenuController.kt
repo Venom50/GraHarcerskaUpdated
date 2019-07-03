@@ -15,13 +15,19 @@ open class MenuController {
     }
 
     fun chooseOption() {
+        val input = Scanner(System.`in`)
+        var option = input.nextLine()
 
-        var option: String?
-
-        do {
-            val input = Scanner(System.`in`)
+        while(option != "1" && option != "2" && option != "3") {
+            println("Bledna opcja, sprobuj ponownie")
+            menuView.showMenu()
             option = input.nextLine()
-        } while(option != "1" && option != "2" && option != "3")
+        }
+
+//        do {
+//            val input = Scanner(System.`in`)
+//            option = input.nextLine()
+//        } while(option != "1" && option != "2" && option != "3")
 
 
 
