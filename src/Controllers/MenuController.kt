@@ -4,10 +4,11 @@ import Models.MenuModel
 import Views.MenuView
 import java.util.*
 
-open class MenuController {
+open class MenuController(receivedGameController: GameController, receivedMenuModel: MenuModel, receivedMenuView: MenuView) {
 
-    val menuModel = MenuModel()
-    val menuView = MenuView()
+    private val menuModel = receivedMenuModel
+    private val menuView = receivedMenuView
+    private val gameController = receivedGameController
 
     fun startMenu() {
         menuView.showMenu()
@@ -24,29 +25,15 @@ open class MenuController {
             option = input.nextLine()
         }
 
-//        do {
-//            val input = Scanner(System.`in`)
-//            option = input.nextLine()
-//        } while(option != "1" && option != "2" && option != "3")
-
-
-
         when(option) {
-            "1" -> startGame()
+            "1" -> gameController.startGame()
             "2" -> showHighestAmountOfMoney()
-            "3" -> endGame()
+            "3" -> println("Game is over")
         }
-    }
-
-    fun startGame() {
-        println("Nowa gra start")
     }
 
     fun showHighestAmountOfMoney() {
         println(menuModel.highestAmountOfMoney)
     }
 
-    fun endGame() {
-        println("Koniec gry")
-    }
 }

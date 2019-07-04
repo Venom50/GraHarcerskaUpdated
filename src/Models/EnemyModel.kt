@@ -1,5 +1,3 @@
 package Models
 
-data class EnemyModel(
-    var power: Int = 10
-)
+data class EnemyModel(var power: Int = 10)
